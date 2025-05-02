@@ -5,7 +5,7 @@ const Card = ({ title, children }) => (
     style={{
       backgroundColor: '#fff',
       padding: '20px',
-      borderRadius: '12px',
+      borderRadius: '13px',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       marginBottom: '20px',
     }}
