@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AudioPlayer from './components/audioplayer';
+import MuteForm from './components/muteform';
+import Card from './components/card';
 
 function App() {
+  const [mutedUrl, setMutedUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        maxWidth: '750px',
+        margin: '40px auto',
+        fontFamily: 'Segoe UI, sans-serif',
+        padding: '20px',
+      }}
+    >
+      <h1 style={{ textAlign: 'center', marginBottom: '40px', color: '#333' }}>Audio Mute Editor</h1>
+
+      <Card title="Original Audio">
+        <AudioPlayer id="original" url="https://audiomute-server.onrender.com/hls/output.m3u8" />
+      </Card>
+
+      <Card title="Mute Segments">
+        <MuteForm setMutedUrl={setMutedUrl} setIsLoading={setIsLoading} />
+      </Card>
+
+      {isLoading && (
+        <Card>
+          <div style={{ textAlign: 'center', fontSize: '16px', color: '#999' }}>Processing audio...</div>
+        </Card>
+      )}
+
+      {mutedUrl && (
+        <Card title="Muted Audio Preview">
+          <AudioPlayer id="muted" url={mutedUrl} />
+        </Card>
+      )}
     </div>
   );
 }
