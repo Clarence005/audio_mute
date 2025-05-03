@@ -30,11 +30,17 @@ const MuteForm = ({ setMutedUrl, setIsLoading }) => {
     setIsLoading(false);
   };
 
+  const removeSegment = (index) => {
+    const updated = [...segments];
+    updated.splice(index, 1);
+    setSegments(updated);
+  };
+  
   return (
     <div className="mute-form">
       <h3 className="mute-title">Select Mute Segments</h3>
       {segments.map((seg, i) => (
-        <SegmentInput key={i} segment={seg} index={i} handleChange={handleChange} />
+        <SegmentInput key={i} segment={seg} index={i} handleChange={handleChange} removeSegment={removeSegment} />
       ))}
 
       <div className="button-group">

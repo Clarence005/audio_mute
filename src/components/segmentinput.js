@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SegmentInput = ({ segment, index, handleChange }) => (
-  <div style={{ display: 'flex', gap: '15px', marginBottom: '12px' }}>
+const SegmentInput = ({ segment, index, handleChange, removeSegment }) => (
+  <div className="segment-input" style={{ display: 'flex', gap: '15px', marginBottom: '12px', flexWrap: 'wrap' }}>
     <input
       type="number"
       placeholder="Start time (sec)"
@@ -14,6 +14,7 @@ const SegmentInput = ({ segment, index, handleChange }) => (
         border: '1px solid #ccc',
         outlineColor: '#007bff',
         fontSize: '15px',
+        minWidth: '130px',
       }}
     />
     <input
@@ -28,8 +29,27 @@ const SegmentInput = ({ segment, index, handleChange }) => (
         border: '1px solid #ccc',
         outlineColor: '#007bff',
         fontSize: '15px',
+        minWidth: '130px',
       }}
     />
+    {index > 0 && (
+      <button
+        className="remove-segment-btn"
+        onClick={() => removeSegment(index)}
+        style={{
+          backgroundColor: '#dc3545',
+          color: '#fff',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          border: 'none',
+          cursor: 'pointer',
+          fontSize: '14px',
+          transition: '0.3s',
+        }}
+      >
+        Remove
+      </button>
+    )}
   </div>
 );
 

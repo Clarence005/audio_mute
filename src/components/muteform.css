@@ -47,19 +47,22 @@
     }
   
     .button {
-      width: 100%;
+      width: 70%;
       font-size: 16px;
     }
-  
+    .remove-segment-btn{
+      width: 70%;
+      font-size: 16px;
+    }
 
-    .segment-input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .segment-input {
+      flex-direction: column !important;
     }
   
-    .segment-input {
-      width: 100%;
+    .segment-input input {
+      width: 80%;
     }
+  
+    
   }
   

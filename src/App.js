@@ -14,6 +14,7 @@ function App() {
         margin: '40px auto',
         fontFamily: 'Segoe UI, sans-serif',
         padding: '20px',
+        background: 'linear-gradient(to right, #f2f2f2, #e6f0ff)'
       }}
     >
       <h1 style={{ textAlign: 'center', marginBottom: '40px', color: '#333' }}>Audio Mute Editor</h1>
